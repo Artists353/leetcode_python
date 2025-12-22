@@ -11,5 +11,3 @@ class Solution(object):
 nums = [0, 0, 1, 1]
 solution = Solution()
 print(solution.getSneakyNumbers(nums))
-            
-                
