@@ -1,7 +1,9 @@
 class Solution:
     def countNegatives(self, grid):
         count = 0
+        # Iterate through each row and each number in the row
         for row in grid:
+            # Count negative numbers in the current row
             for num in row:
                 if num < 0:
                     count += 1
