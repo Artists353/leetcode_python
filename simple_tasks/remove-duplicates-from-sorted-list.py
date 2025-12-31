@@ -5,12 +5,19 @@ class ListNode(object):
         self.next = next
 class Solution(object):
     def deleteDuplicates(self, head):
-        self.array = []
-        for i, u in enumerate(head):
-            self.array.append(u)
-        
-        self.array = list(set(self.array))
-        return self.array
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        current = head
+        while current and current.next:
+            if current.val == current.next.val:
+                # Skip the duplicate node
+                current.next = current.next.next
+            else:
+                # Move to the next distinct element
+                current = current.next
+        return head
         
 
 head = [1,1,2]    
