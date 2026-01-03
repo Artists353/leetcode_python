@@ -1,8 +1,23 @@
 class Solution(object):
-    def isValid(self, s):
-        return s.startswith("(") and s.endswith(")") or s.startswith("{") and s.endswith("}") or s.startswith("[") and s.endswith("]")
+    def romanToInt(self, s: str) -> int:
+        total = 0
+        roman_numerals = {
+                'I': 1,
+                'V': 5,
+                'X': 10,
+                'L': 50,
+                'C': 100,
+                'D': 500,
+                'M': 1000
+            }
+        for i in range(len(s)):
+            if i + 1 < len(s) and roman_numerals[s[i]] < roman_numerals[s[i + 1]]:
+                total -= roman_numerals[s[i]]
+            else:
+                total += roman_numerals[s[i]]
+        return total
 
-s = "()[]{}"
+
 solution = Solution()
-print(solution.isValid(s))
+print(solution.romanToInt("LVIII"))  
             
